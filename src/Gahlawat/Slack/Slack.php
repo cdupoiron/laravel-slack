@@ -25,8 +25,11 @@ class Slack
         }
     }
 
-    public function send($message, $username = '', $emoji = '')
+    public function send($message, $username = '', $emoji = '', $webhook = '')
     {
+        if($webhook == ''){
+            $webhook = config('slack.incoming-webhook');
+        }
         if (!trim($username)) {
             $username = $this->defaultUsername;
         }
@@ -48,7 +51,7 @@ class Slack
         $guzzleClient = new Client();
 
         try {
-            $response = $guzzleClient->post(config('slack.incoming-webhook'), [
+            $response = $guzzleClient->post($webhook,  [
                 'headers' => $headers,
                 'body'    => json_encode($sendData),
             ]);
