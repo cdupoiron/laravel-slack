@@ -1,5 +1,5 @@
 {
-    "name": "jivesh/laravel-slack",
+    "name": "cdupoiron/laravel-slack",
     "description": "A minimalist laravel integration for Slack",
     "type": "library",
     "keywords": ["slack", "laravel"],
