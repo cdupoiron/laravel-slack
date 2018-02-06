@@ -25,7 +25,7 @@ class Slack
         }
     }
 
-    public function send($message, $username = '', $emoji = '', $webhook = '')
+    public function send($message, $username = '', $emoji = '', $webhook = '', $channel = '')
     {
         if($webhook == ''){
             $webhook = config('slack.incoming-webhook');
@@ -43,6 +43,10 @@ class Slack
             'username'   => $username,
             'icon_emoji' => $emoji,
         ];
+
+        if($channel != ''){
+            $sendData['channel'] = $channel;
+        }
 
         $headers = [
             'Content-Type' => 'application/json',
