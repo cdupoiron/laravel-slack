@@ -101,7 +101,7 @@ Slack::send("your-message");
 - To change the default name and/or display icon in your Slack app for any message, use:
 
 ```php
-Slack::send("your-message" [,"display-name" [,"display-emoji"]]);
+Slack::send("your-message" [,"display-name" [,"display-emoji" [,"webhook" [,"channel"]]]]);
 
 // here [] indicates optional parameters
 ```
